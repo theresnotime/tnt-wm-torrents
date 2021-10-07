@@ -32,8 +32,11 @@ $torrentList = new WMtorrents\TorrentList();
         <div class='container'>
             <div class='text-center mt-3'>
                 <h1>Wikimedia Database Dump torrents</h1>
+                <p class='lead'>A collection of <a target='_blank' href='https://dumps.wikimedia.org'>Database Dumps</a> packaged as torrents & hosted by TheresNoTime</p>
+                
             </div>
             <div>
+                <p>See also the <a href='https://meta.wikimedia.org/wiki/Data_dump_torrents' target='_blank'>main torrent list</a></p>
                 <?php
                 foreach ($torrentList->getYears() as $year) {
                     echo "<h2>$year</h2>";
@@ -51,7 +54,14 @@ $torrentList = new WMtorrents\TorrentList();
                                     <sup>
                                         <a href='<?php echo $torrent->magnet; ?>'><img src='https://upload.wikimedia.org/wikipedia/commons/7/72/TPB_Magnet_Icon.gif'/></a>
                                     </sup>
-                                </li>
+                                </li>   
+                                <?php
+                                if ($torrent->webseed !== false) {
+                                    echo "<li><strong>Webseed</strong>: <a href='" . $torrent->webseed . "'>Yes</a></li>" . PHP_EOL;
+                                } else {
+                                    echo "<li><strong>Webseed</strong>: No</li>" . PHP_EOL;
+                                }
+                                ?>
                                 <li><strong>Hash</strong>: <?php echo $torrent->hash; ?></li>
                             </ul>
                             <small>Torrent generated <?php echo $torrent->created->format('Y-m-d'); ?> from <a href='<?php echo $torrent->weblink; ?>' target='_blank'><?php echo $torrent->weblink; ?></a></small>

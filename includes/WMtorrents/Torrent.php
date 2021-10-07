@@ -41,6 +41,7 @@ class Torrent
     public string $hash;
     public string $weblink;
     public DateTime $created;
+    public bool|string $webseed;
 
     /**
      * Construct
@@ -68,6 +69,12 @@ class Torrent
         $this->magnet = $torrentInfo['magnet'];
         $this->hash = $torrentInfo['hash'];
         $this->weblink = $torrentInfo['weblink'];
+
+        if ($torrentInfo['webseed']) {
+            $this->webseed = $torrentInfo['webseed'];
+        } else {
+            $this->webseed = false;
+        }
 
         return $this;
     }
