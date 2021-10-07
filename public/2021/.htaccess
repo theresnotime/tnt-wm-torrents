@@ -1,1 +1,4 @@
 Options +Indexes
+IndexOptions FancyIndexing
+IndexOptions FoldersFirst
+IndexOptions NameWidth=*
