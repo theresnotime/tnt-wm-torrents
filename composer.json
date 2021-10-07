@@ -1,0 +1,14 @@
+{
+    "name": "samtarling/wm-torrents",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Sam",
+            "email": "375162+samtarling@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"WMtorrents\\": "includes/WMtorrents/"}
+    }
+}
