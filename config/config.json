@@ -1,6 +1,7 @@
 {
     "enabled": [
-        "simple"
+        "simple",
+        "meta"
     ],
     "years": [
         "2021"
