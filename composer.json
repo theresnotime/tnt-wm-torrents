@@ -7,7 +7,9 @@
             "email": "375162+samtarling@users.noreply.github.com"
         }
     ],
-    "require": {},
+    "require": {
+        "addwiki/mediawiki-api-base": "~2.0"
+    },
     "autoload": {
         "psr-4": {"WMtorrents\\": "includes/WMtorrents/"}
     }
