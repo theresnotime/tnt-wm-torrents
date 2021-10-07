@@ -40,6 +40,7 @@ class Torrent
     public string $magnet;
     public string $hash;
     public string $weblink;
+    public DateTime $created;
 
     /**
      * Construct
@@ -52,16 +53,21 @@ class Torrent
 
         $this->date = DateTime::createFromFormat(
             'Y-m-d',
-            $torrentInfo[$date]['date']
+            $torrentInfo['date']
+        );
+
+        $this->created = DateTime::createFromFormat(
+            'Y-m-d',
+            $torrentInfo['created']
         );
 
         $this->year = intval($this->date->format('Y'));
-        $this->project = $torrentInfo[$date]['project'];
-        $this->file = $torrentInfo[$date]['file'];
-        $this->location = $torrentInfo[$date]['location'];
-        $this->magnet = $torrentInfo[$date]['magnet'];
-        $this->hash = $torrentInfo[$date]['hash'];
-        $this->weblink = $torrentInfo[$date]['weblink'];
+        $this->project = $torrentInfo['project'];
+        $this->file = $torrentInfo['file'];
+        $this->location = $torrentInfo['location'];
+        $this->magnet = $torrentInfo['magnet'];
+        $this->hash = $torrentInfo['hash'];
+        $this->weblink = $torrentInfo['weblink'];
 
         return $this;
     }

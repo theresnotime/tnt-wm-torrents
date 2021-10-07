@@ -68,7 +68,7 @@ class TorrentList
     }
 
     /**
-     * Get the list of enabled projects
+     * Get all config
      *
      * @return array
      */
@@ -85,5 +85,15 @@ class TorrentList
     public function getYears()
     {
         return $this->config['years'];
+    }
+
+    /**
+     * Get enabled sites
+     *
+     * @return array
+     */
+    public function getEnabled()
+    {
+        return $this->config['enabled'];
     }
 }

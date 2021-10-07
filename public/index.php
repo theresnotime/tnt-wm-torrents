@@ -37,23 +37,27 @@ $torrentList = new WMtorrents\TorrentList();
                 <?php
                 foreach ($torrentList->getYears() as $year) {
                     echo "<h2>$year</h2>";
-                    foreach ($torrentList->getTorrentList()[$year] as $torrentInfo) {
-                        $torrent = new WMtorrents\Torrent($torrentInfo);
-                        ?>
-                        <h4><?php echo $torrent->project; ?> (<?php echo $torrent->date->format('Y-m-d'); ?>)</h4>
-                        <ul>
-                            <li><strong>File name</strong>: <?php echo $torrent->file; ?></li>
-                            <li><strong>Torrent</strong>: 
-                                <a href='<?php echo $torrent->location; ?>'>
-                                <?php echo $torrent->file; ?>.torrent</a>
-                                <sup>
-                                    <a href='<?php echo $torrent->magnet; ?>'><img src='https://upload.wikimedia.org/wikipedia/commons/7/72/TPB_Magnet_Icon.gif'/></a>
-                                </sup>
-                            </li>
-                            <li><strong>Hash</strong>: <?php echo $torrent->hash; ?></li>
-                            <li><strong>From</strong>: <a href='<?php echo $torrent->weblink; ?>' target='_blank'><?php echo $torrent->weblink; ?></a></li>
-                        </ul>
-                        <?php
+                    foreach ($torrentList->getEnabled() as $project) {
+                        $torrents = $torrentList->getTorrentList()[$year][$project];
+                        foreach ($torrents as $torrentInfo) {
+                            $torrent = new WMtorrents\Torrent($torrentInfo);
+                            ?>
+                            <h4><?php echo $torrent->project; ?> (<?php echo $torrent->date->format('Y-m-d'); ?>)</h4>
+                            <ul>
+                                <li><strong>File name</strong>: <?php echo $torrent->file; ?></li>
+                                <li><strong>Torrent</strong>: 
+                                    <a href='<?php echo $torrent->location; ?>'>
+                                    <?php echo $torrent->file; ?>.torrent</a>
+                                    <sup>
+                                        <a href='<?php echo $torrent->magnet; ?>'><img src='https://upload.wikimedia.org/wikipedia/commons/7/72/TPB_Magnet_Icon.gif'/></a>
+                                    </sup>
+                                </li>
+                                <li><strong>Hash</strong>: <?php echo $torrent->hash; ?></li>
+                            </ul>
+                            <small>Torrent generated <?php echo $torrent->created->format('Y-m-d'); ?> from <a href='<?php echo $torrent->weblink; ?>' target='_blank'><?php echo $torrent->weblink; ?></a></small>
+                            <hr>
+                            <?php
+                        }
                     }
                 } 
                 ?>
