@@ -32,7 +32,7 @@ $torrentList = new WMtorrents\TorrentList();
         <div class='container'>
             <div class='text-center mt-3'>
                 <h1>Wikimedia Database Dump torrents</h1>
-                <p class='lead'>A collection of <a target='_blank' href='https://dumps.wikimedia.org'>Database Dumps</a> packaged as torrents & hosted by TheresNoTime</p>
+                <p class='lead'>A collection of <a target='_blank' href='https://dumps.wikimedia.org'>Database Dumps</a> packaged as torrents & hosted by <a href='https://www.theresnotime.co.uk' target='_blank'>TheresNoTime</a></p>
                 
             </div>
             <div>
