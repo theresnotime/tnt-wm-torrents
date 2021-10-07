@@ -36,6 +36,7 @@ class Torrent
     public string $project;
     public DateTime $date;
     public string $file;
+    public string $size;
     public string $location;
     public string $magnet;
     public string $hash;
@@ -65,6 +66,7 @@ class Torrent
         $this->year = intval($this->date->format('Y'));
         $this->project = $torrentInfo['project'];
         $this->file = $torrentInfo['file'];
+        $this->size = $torrentInfo['size'];
         $this->location = $torrentInfo['location'];
         $this->magnet = $torrentInfo['magnet'];
         $this->hash = $torrentInfo['hash'];

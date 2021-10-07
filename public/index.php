@@ -48,6 +48,7 @@ $torrentList = new WMtorrents\TorrentList();
                             <h4><?php echo $torrent->project; ?> (<?php echo $torrent->date->format('Y-m-d'); ?>)</h4>
                             <ul>
                                 <li><strong>File name</strong>: <?php echo $torrent->file; ?></li>
+                                <li><strong>Size</strong>: <?php echo $torrent->size; ?></li>
                                 <li><strong>Torrent</strong>: 
                                     <a href='<?php echo $torrent->location; ?>'>
                                     <?php echo $torrent->file; ?>.torrent</a>
